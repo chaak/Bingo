@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2bc6e47d-c644-4c8b-88d6-5a4be6cea7c2" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/web/client/Number.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/web/client/ClientBingo.class" afterPath="$PROJECT_DIR$/target/classes/com/web/client/ClientBingo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/web/client/Number.class" afterPath="$PROJECT_DIR$/target/classes/com/web/client/Number.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/web/client/ClientBingo.java" afterPath="$PROJECT_DIR$/src/main/java/com/web/client/ClientBingo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/web/client/Tile.java" afterPath="$PROJECT_DIR$/src/main/java/com/web/client/Tile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/web/server/ServerBingo.java" afterPath="$PROJECT_DIR$/src/main/java/com/web/server/ServerBingo.java" />
     </list>
     <ignored path="Bingo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,12 +44,12 @@
       <file leaf-file-name="ClientBingo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/web/client/ClientBingo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="782">
+              <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1212#1213#0" expanded="true" />
-                <element signature="e#1240#1241#0" expanded="true" />
+                <element signature="e#1242#1243#0" expanded="true" />
+                <element signature="e#1270#1271#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -55,22 +58,31 @@
       <file leaf-file-name="Tile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/web/client/Tile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="164">
+              <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1335#1336#0" expanded="true" />
+                <element signature="e#1365#1366#0" expanded="true" />
+                <element signature="e#1397#1398#0" expanded="true" />
+                <element signature="e#1440#1441#0" expanded="true" />
+                <element signature="e#1485#1486#0" expanded="true" />
+                <element signature="e#1529#1530#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Number.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/web/client/Number.java">
+      <file leaf-file-name="BingoBoard.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/web/client/BingoBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="357">
+              <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#473#474#0" expanded="true" />
+                <element signature="e#518#519#0" expanded="true" />
+                <element signature="e#567#568#0" expanded="true" />
+                <element signature="e#610#611#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -108,10 +120,11 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/client/ClientBingo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/web/client/client/ClientBingo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/web/client/Tile.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/web/server/ServerBingo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/web/client/ClientBingo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/web/client/Number.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/web/client/ClientBingo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/web/client/Tile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/web/client/BingoBoard.java" />
       </list>
     </option>
   </component>
@@ -284,6 +297,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/InteliJProjects/SudokuGame" />
   </component>
   <component name="RunManager" selected="Application.ClientBingo">
     <configuration default="false" name="ClientBingo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -719,12 +733,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1482948741030</updated>
-      <workItem from="1482948744949" duration="6936000" />
+      <workItem from="1482948744949" duration="15142000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6936000" />
+    <option name="totallyTimeSpent" value="15142000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="86" y="-8" width="1842" height="1096" extended-state="6" />
@@ -769,14 +783,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="20" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/ServerBingo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -809,6 +815,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/web/client/Number.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/web/server/ServerBingo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -817,34 +831,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/web/client/ClientBingo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="782">
+          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-            <element signature="e#1240#1241#0" expanded="true" />
+            <element signature="e#1242#1243#0" expanded="true" />
+            <element signature="e#1270#1271#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/web/client/Tile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="164">
+          <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1335#1336#0" expanded="true" />
+            <element signature="e#1365#1366#0" expanded="true" />
+            <element signature="e#1397#1398#0" expanded="true" />
+            <element signature="e#1440#1441#0" expanded="true" />
+            <element signature="e#1485#1486#0" expanded="true" />
+            <element signature="e#1529#1530#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/web/client/Number.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/web/client/BingoBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="357">
+          <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#473#474#0" expanded="true" />
+            <element signature="e#518#519#0" expanded="true" />
+            <element signature="e#567#568#0" expanded="true" />
+            <element signature="e#610#611#0" expanded="true" />
           </folding>
         </state>
       </provider>

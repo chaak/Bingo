@@ -1,7 +1,6 @@
 package com.web.client;
 
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -13,22 +12,25 @@ import javafx.stage.Stage;
 public class ClientBingo extends Application {
 
     private static double NUMBER_X = 2.2;
-    private static double NUMBER_Y = 6.1;
+    private static double NUMBER_Y = 6.6;
+    private Tile [][] board;
 
     private Parent createContent() throws InterruptedException {
         Pane root = new Pane();
         root.setPrefSize(500, 700);
 
+        //ustawianie kafli w okienku
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 5; j++) {
                 Tile tile = new Tile();
-                Number number = new Number();
+
+                tile.numberToCheck.setTranslateY(NUMBER_Y * 100);
+                tile.numberToCheck.setTranslateX(NUMBER_X * 100);
+
                 tile.setTranslateX(j * 100);
                 tile.setTranslateY(i * 100);
-                number.setTranslateY(NUMBER_Y * 100);
-                number.setTranslateX(NUMBER_X * 100);
 
-                root.getChildren().addAll(tile, number);
+                root.getChildren().addAll(tile, tile.numberToCheck);
             }
         }
         return root;
