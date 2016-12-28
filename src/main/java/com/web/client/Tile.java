@@ -10,7 +10,7 @@ import javafx.scene.shape.Rectangle;
  */
 class Tile extends StackPane {
     Tile(){
-        Rectangle border = new Rectangle(160, 160);
+        Rectangle border = new Rectangle(100, 100);
         border.setFill(null);
         border.setStroke(Color.BLACK);
 

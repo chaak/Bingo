@@ -1,6 +1,7 @@
 package com.web.client;
 
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -11,17 +12,23 @@ import javafx.stage.Stage;
  */
 public class ClientBingo extends Application {
 
-    private Parent createContent() {
+    private static double NUMBER_X = 2.2;
+    private static double NUMBER_Y = 6.1;
+
+    private Parent createContent() throws InterruptedException {
         Pane root = new Pane();
-        root.setPrefSize(800, 960);
+        root.setPrefSize(500, 700);
 
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 5; j++) {
                 Tile tile = new Tile();
-                tile.setTranslateX(j * 160);
-                tile.setTranslateY(i * 160);
+                Number number = new Number();
+                tile.setTranslateX(j * 100);
+                tile.setTranslateY(i * 100);
+                number.setTranslateY(NUMBER_Y * 100);
+                number.setTranslateX(NUMBER_X * 100);
 
-                root.getChildren().addAll(tile);
+                root.getChildren().addAll(tile, number);
             }
         }
         return root;
@@ -33,7 +40,7 @@ public class ClientBingo extends Application {
         primaryStage.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String args[]) {
         launch(args);
     }
 }
