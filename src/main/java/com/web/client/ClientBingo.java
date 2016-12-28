@@ -11,9 +11,19 @@ import javafx.stage.Stage;
  */
 public class ClientBingo extends Application {
 
-    private Parent createContent(){
+    private Parent createContent() {
         Pane root = new Pane();
-        root.setPrefSize(800,800);
+        root.setPrefSize(800, 960);
+
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 5; j++) {
+                Tile tile = new Tile();
+                tile.setTranslateX(j * 160);
+                tile.setTranslateY(i * 160);
+
+                root.getChildren().addAll(tile);
+            }
+        }
         return root;
     }
 
