@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -13,7 +15,10 @@ public class ClientBingo extends Application {
 
     private static double NUMBER_X = 2.2;
     private static double NUMBER_Y = 6.6;
-    private Tile [][] board;
+    private static double X_ALIGMENT = 0.4;
+    private static double Y_ALIGMENT = 0.4;
+
+    private BingoBoard board = new BingoBoard();
 
     private Parent createContent() throws InterruptedException {
         Pane root = new Pane();
@@ -23,7 +28,6 @@ public class ClientBingo extends Application {
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 5; j++) {
                 Tile tile = new Tile();
-
                 tile.numberToCheck.setTranslateY(NUMBER_Y * 100);
                 tile.numberToCheck.setTranslateX(NUMBER_X * 100);
 
@@ -33,6 +37,15 @@ public class ClientBingo extends Application {
                 root.getChildren().addAll(tile, tile.numberToCheck);
             }
         }
+
+        for (int x = 0; x < 7; x++) {
+            for (int y = 0; y < 5; y++) {
+                board.getNumber(x, y).setTranslateX((y + X_ALIGMENT) * 100);
+                board.getNumber(x, y).setTranslateY((x - Y_ALIGMENT) * 100);
+                root.getChildren().addAll(board.getNumber(x, y));
+            }
+        }
+
         return root;
     }
 

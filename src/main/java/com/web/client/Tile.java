@@ -7,6 +7,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 
 import java.util.Objects;
 
@@ -17,15 +18,16 @@ class Tile extends StackPane {
 
     private int x;
     private int y;
-    private Text value = new Text();
 
+    private Text value = new Text();
     private Text B = new Text();
     public Text numberToCheck = new Text();
 
-    Tile(int x, int y, String value) {
+    Tile(int x, int y, String newValue) {
         this.x = x;
         this.y = y;
-        this.value.setText(value);
+        value.setText(newValue);
+        value.setFont(Font.font(30));
     }
 
     Tile() {
@@ -34,31 +36,32 @@ class Tile extends StackPane {
         border.setStroke(Color.BLACK);
 
         setAlignment(Pos.CENTER);
-        getChildren().addAll(border, B);
 
         B.setFont(Font.font(45));
         B.setFill(Color.RED);
 
-        numberToCheck.setText("45"); //server ustala te liczbe
+        numberToCheck.setText("5"); //server ustala te liczbe
         numberToCheck.setFill(Color.BLACK);
-        numberToCheck.setFont(new Font(50));
+        numberToCheck.setFont(Font.font(50));
 
         setOnMouseClicked(event -> {
-            if (event.getButton() == MouseButton.PRIMARY)
-                if (Objects.equals(event.getButton().toString(), numberToCheck.getText()))
-                    drawB();
+            //if(Objects.equals("5", tile.numberToCheck.getText()))
+            drawB();
         });
+
+        getChildren().addAll(border, B);
     }
 
-    private void drawB() {
+    public void drawB() {
         B.setText("B");
     }
 
-    public String getValue() {
-        return this.value.getText();
+    public Text getValue() {
+        return this.value;
     }
 
     public void setValue(String newValue) {
         this.value.setText(newValue);
     }
+
 }
