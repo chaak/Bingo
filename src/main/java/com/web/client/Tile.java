@@ -1,13 +1,11 @@
 package com.web.client;
 
 import javafx.geometry.Pos;
-import javafx.scene.input.MouseButton;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 
 import java.util.Objects;
 
@@ -21,7 +19,7 @@ class Tile extends StackPane {
 
     private Text value = new Text();
     private Text B = new Text();
-    public Text numberToCheck = new Text();
+    Text numberToCheck = new Text();
 
     Tile(int x, int y, String newValue) {
         this.x = x;
@@ -45,8 +43,8 @@ class Tile extends StackPane {
         numberToCheck.setFont(Font.font(50));
 
         setOnMouseClicked(event -> {
-            //if(Objects.equals("5", tile.numberToCheck.getText()))
-            drawB();
+            if(Objects.equals("5", numberToCheck.getText()))
+                drawB();
         });
 
         getChildren().addAll(border, B);

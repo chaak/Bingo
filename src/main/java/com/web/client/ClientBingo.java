@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -28,13 +29,18 @@ public class ClientBingo extends Application {
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 5; j++) {
                 Tile tile = new Tile();
+                FreeTile freeTile = new FreeTile();
+
                 tile.numberToCheck.setTranslateY(NUMBER_Y * 100);
                 tile.numberToCheck.setTranslateX(NUMBER_X * 100);
+
+                freeTile.setTranslateX(2 * 100);
+                freeTile.setTranslateY(3 * 100);
 
                 tile.setTranslateX(j * 100);
                 tile.setTranslateY(i * 100);
 
-                root.getChildren().addAll(tile, tile.numberToCheck);
+                root.getChildren().addAll(tile, tile.numberToCheck, freeTile);
             }
         }
 
