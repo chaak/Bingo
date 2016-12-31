@@ -2,6 +2,7 @@ package com.web.client;
 
 import javafx.scene.text.Text;
 
+import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -12,10 +13,7 @@ class BingoBoard {
     private static int SIZE_X = 5;
     private Tile[][] board = new Tile[SIZE_Y][SIZE_Y];
     private static String bingo = "BINGO";
-
-    BingoBoard() {
-        initBoard();
-    }
+    private boolean isClicked = false;
 
     void initBoard() {
         for (int i = 0; i < SIZE_Y; i++) {
@@ -40,6 +38,16 @@ class BingoBoard {
     Text getNumber(int x, int y) {
         return board[x][y].getValue();
     }
+
+//    boolean isClicked(int x, int y, Tile tile) {
+//        for (x = 0; x < SIZE_Y; x++) {
+//            for (y = 0; y <= SIZE_X; y++) {
+//                if (Objects.equals(tile.numberToCheck.getText(), board[x][y].getText())) isClicked = true;
+//                else isClicked = false;
+//            }
+//        }
+//        return isClicked;
+//    }
 
     void setNumber(int x, int y, String value) {
         board[x][y].setValue(value);

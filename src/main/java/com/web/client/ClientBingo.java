@@ -14,8 +14,8 @@ import javafx.stage.Stage;
  */
 public class ClientBingo extends Application {
 
-    private static double NUMBER_X = 2.2;
-    private static double NUMBER_Y = 6.6;
+    private static double NUMBER_X = 2.0;
+    private static double NUMBER_Y = 6.0;
     private static double X_ALIGMENT = 0.4;
     private static double Y_ALIGMENT = 0.4;
 
@@ -25,14 +25,17 @@ public class ClientBingo extends Application {
         Pane root = new Pane();
         root.setPrefSize(500, 700);
 
+        board.initBoard();
+
         //ustawianie kafli w okienku
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 5; j++) {
                 Tile tile = new Tile();
                 FreeTile freeTile = new FreeTile();
+                RandomNumber randomNumber = new RandomNumber();
 
-                tile.numberToCheck.setTranslateY(NUMBER_Y * 100);
-                tile.numberToCheck.setTranslateX(NUMBER_X * 100);
+                randomNumber.setTranslateY(NUMBER_Y * 100);
+                randomNumber.setTranslateX(NUMBER_X * 100);
 
                 freeTile.setTranslateX(2 * 100);
                 freeTile.setTranslateY(3 * 100);
@@ -40,10 +43,11 @@ public class ClientBingo extends Application {
                 tile.setTranslateX(j * 100);
                 tile.setTranslateY(i * 100);
 
-                root.getChildren().addAll(tile, tile.numberToCheck, freeTile);
+                root.getChildren().addAll(tile, randomNumber, freeTile);
             }
         }
 
+        //wstawianie wartosci do kafli
         for (int x = 0; x < 7; x++) {
             for (int y = 0; y < 5; y++) {
                 board.getNumber(x, y).setTranslateX((y + X_ALIGMENT) * 100);

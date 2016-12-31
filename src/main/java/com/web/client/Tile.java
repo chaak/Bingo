@@ -7,8 +7,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-import java.util.Objects;
-
 /**
  * Created by JakubWitczak on 28.12.2016.
  */
@@ -19,7 +17,6 @@ class Tile extends StackPane {
 
     private Text value = new Text();
     private Text B = new Text();
-    Text numberToCheck = new Text();
 
     Tile(int x, int y, String newValue) {
         this.x = x;
@@ -38,15 +35,6 @@ class Tile extends StackPane {
         B.setFont(Font.font(45));
         B.setFill(Color.RED);
 
-        numberToCheck.setText("5"); //server ustala te liczbe
-        numberToCheck.setFill(Color.BLACK);
-        numberToCheck.setFont(Font.font(50));
-
-        setOnMouseClicked(event -> {
-            if(Objects.equals("5", numberToCheck.getText()))
-                drawB();
-        });
-
         getChildren().addAll(border, B);
     }
 
@@ -56,6 +44,10 @@ class Tile extends StackPane {
 
     public Text getValue() {
         return this.value;
+    }
+
+    public String getText() {
+        return this.value.getText();
     }
 
     public void setValue(String newValue) {
