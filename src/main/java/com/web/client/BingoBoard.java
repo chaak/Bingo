@@ -39,15 +39,12 @@ class BingoBoard {
         return board[x][y].getValue();
     }
 
-//    boolean isClicked(int x, int y, Tile tile) {
-//        for (x = 0; x < SIZE_Y; x++) {
-//            for (y = 0; y <= SIZE_X; y++) {
-//                if (Objects.equals(tile.numberToCheck.getText(), board[x][y].getText())) isClicked = true;
-//                else isClicked = false;
-//            }
-//        }
-//        return isClicked;
-//    }
+    boolean isClicked(int x, int y, RandomNumber randomNumber) {
+        if (Objects.equals(board[x][y].getText(), randomNumber.getText())) isClicked = true;
+        else isClicked = false;
+
+        return isClicked;
+    }
 
     void setNumber(int x, int y, String value) {
         board[x][y].setValue(value);

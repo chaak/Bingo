@@ -23,6 +23,10 @@ class Tile extends StackPane {
         this.y = y;
         value.setText(newValue);
         value.setFont(Font.font(30));
+
+//        setOnMouseClicked(event -> {
+//
+//        });
     }
 
     Tile() {
@@ -34,6 +38,10 @@ class Tile extends StackPane {
 
         B.setFont(Font.font(45));
         B.setFill(Color.RED);
+
+//        setOnMouseClicked(event -> {
+//            drawB();
+//        });
 
         getChildren().addAll(border, B);
     }
