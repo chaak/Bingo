@@ -11,9 +11,8 @@ import java.util.Random;
 class BingoBoard {
     private static int SIZE_Y = 7;
     private static int SIZE_X = 5;
-    private Tile[][] board = new Tile[SIZE_Y][SIZE_Y];
+    private static Tile[][] board = new Tile[SIZE_Y][SIZE_Y];
     private static String bingo = "BINGO";
-    private boolean isClicked = false;
 
     void initBoard() {
         for (int i = 0; i < SIZE_Y; i++) {
@@ -38,13 +37,17 @@ class BingoBoard {
     Text getNumber(int x, int y) {
         return board[x][y].getValue();
     }
-//
-//    boolean isClicked(int x, int y, RandomNumber randomNumber) {
-//        if (Objects.equals(board[x][y].getValue().getText(), randomNumber.getValue().getText())) isClicked = true;
-//        else isClicked = false;
-//
-//        return isClicked;
-//    }
+
+    static boolean isClickAvaiable() {
+        for(int i = 0; i < SIZE_Y; i++){
+            for(int j = 0; j < SIZE_X; j++){
+                 if(Objects.equals(board[i][j].getValue().getText(), ClientBingo.randomNumber.getValue().getText())) {
+                     return true;
+                 }
+            }
+        }
+        return false;
+    }
 
     private static int randomNumber(int min, int max) {
         Random random = new Random();
