@@ -38,17 +38,13 @@ class BingoBoard {
     Text getNumber(int x, int y) {
         return board[x][y].getValue();
     }
-
-    boolean isClicked(int x, int y, RandomNumber randomNumber) {
-        if (Objects.equals(board[x][y].getText(), randomNumber.getText())) isClicked = true;
-        else isClicked = false;
-
-        return isClicked;
-    }
-
-    void setNumber(int x, int y, String value) {
-        board[x][y].setValue(value);
-    }
+//
+//    boolean isClicked(int x, int y, RandomNumber randomNumber) {
+//        if (Objects.equals(board[x][y].getValue().getText(), randomNumber.getValue().getText())) isClicked = true;
+//        else isClicked = false;
+//
+//        return isClicked;
+//    }
 
     private static int randomNumber(int min, int max) {
         Random random = new Random();

@@ -16,17 +16,13 @@ class Tile extends StackPane {
     private int y;
 
     private Text value = new Text();
-    private Text B = new Text();
+    private RandomNumber number = new RandomNumber();
 
     Tile(int x, int y, String newValue) {
         this.x = x;
         this.y = y;
         value.setText(newValue);
         value.setFont(Font.font(30));
-
-//        setOnMouseClicked(event -> {
-//
-//        });
     }
 
     Tile() {
@@ -36,30 +32,29 @@ class Tile extends StackPane {
 
         setAlignment(Pos.CENTER);
 
-        B.setFont(Font.font(45));
-        B.setFill(Color.RED);
+        setOnMouseClicked(event -> {
+            if (!ClientBingo.playable){
+                return;
+            }
 
-//        setOnMouseClicked(event -> {
-//            drawB();
-//        });
 
-        getChildren().addAll(border, B);
+
+
+            setValue("B");
+            border.setFill(Color.YELLOW);
+            ClientBingo.checkState();
+        });
+        getChildren().addAll(border, value, number);
     }
 
-    public void drawB() {
-        B.setText("B");
-    }
-
-    public Text getValue() {
+    Text getValue() {
         return this.value;
     }
 
-    public String getText() {
-        return this.value.getText();
-    }
-
-    public void setValue(String newValue) {
+    private void setValue(String newValue) {
         this.value.setText(newValue);
+        this.value.setFill(Color.RED);
+        this.value.setFont(Font.font(45));
     }
 
 }

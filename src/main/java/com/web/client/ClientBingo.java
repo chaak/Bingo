@@ -6,17 +6,26 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by JakubWitczak on 28.12.2016.
  */
 public class ClientBingo extends Application {
 
-    private static double NUMBER_X = 2.0;
-    private static double NUMBER_Y = 6.0;
+    private static double NUMBER_X = 2.2;
+    private static double NUMBER_Y = 6.2;
     private static double X_ALIGMENT = 0.4;
     private static double Y_ALIGMENT = 0.4;
 
     private BingoBoard board = new BingoBoard();
+
+    private static List<Combo> combos = new ArrayList<>();
+    private static RandomNumber randomNumber = new RandomNumber();
+    static boolean playable = true;
+
+    private Tile[][] checkBingo = new Tile[5][6];
 
     private Parent createContent() throws InterruptedException {
         Pane root = new Pane();
@@ -24,13 +33,13 @@ public class ClientBingo extends Application {
 
         board.initBoard();
 
-        //ustawianie kafli w okienku
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 5; j++) {
+        //populate window with tiles
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 6; j++) {
                 Tile tile = new Tile();
                 FreeTile freeTile = new FreeTile();
                 BingoTile bingoTile = new BingoTile();
-                RandomNumber randomNumber = new RandomNumber("50");
+                randomNumber.setValue("50");
 
                 randomNumber.setTranslateY(NUMBER_Y * 100);
                 randomNumber.setTranslateX(NUMBER_X * 100);
@@ -39,16 +48,27 @@ public class ClientBingo extends Application {
                 freeTile.setTranslateY(3 * 100);
 
                 bingoTile.setTranslateX(i * 100);
-                bingoTile.setTranslateY(0 * 100);
+                bingoTile.setTranslateY(0);
 
-                tile.setTranslateX(j * 100);
-                tile.setTranslateY(i * 100);
+                tile.setTranslateX(i * 100);
+                tile.setTranslateY(j * 100);
 
-                root.getChildren().addAll(tile, randomNumber, freeTile, bingoTile);
+                root.getChildren().addAll(tile, freeTile, bingoTile);
+
+                checkBingo[i][j] = tile;
             }
         }
 
-        //wstawianie wartosci do kafli
+        //if (!playable) randomNumber.setValue("WINNER");
+
+        root.getChildren().addAll(randomNumber);
+
+        //populate horizontal lines
+        for (int y = 1; y < 6; y++) {
+            combos.add(new Combo(checkBingo[0][y], checkBingo[1][y], checkBingo[2][y], checkBingo[3][y], checkBingo[4][y]));
+        }
+
+        //populate tiles with numbers
         for (int x = 0; x < 7; x++) {
             for (int y = 0; y < 5; y++) {
                 board.getNumber(x, y).setTranslateX((y + X_ALIGMENT) * 100);
@@ -56,18 +76,18 @@ public class ClientBingo extends Application {
                 root.getChildren().addAll(board.getNumber(x, y));
             }
         }
-//
-//        for (int x = 0; x < 7; x++) {
-//            for (int y = 0; y < 5; y++) {
-//                int finalX = x;
-//                int finalY = y;
-//                tile.setOnMouseClicked(event -> {
-//                    if(board.isClicked(finalX, finalY, tile)) tile.drawB();
-//                });
-//            }
-//        }
 
         return root;
+    }
+
+    static void checkState() {
+        for (Combo combo : combos) {
+            if (combo.isBingo()) {
+                playable = false;
+                randomNumber.setValue("WINNER");
+                break;
+            }
+        }
     }
 
     @Override
