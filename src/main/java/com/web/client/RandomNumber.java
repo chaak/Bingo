@@ -32,8 +32,4 @@ class RandomNumber extends StackPane{
             number.setTranslateX(X_ALIGEMNET);
     }
 
-    Text getValue(){
-        return number;
-    }
-
 }

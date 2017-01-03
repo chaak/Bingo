@@ -6,11 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,19 +18,19 @@ public class ClientBingo extends Application {
     private static double NUMBER_Y = 6.2;
     private static double X_ALIGMENT = 0.4;
     private static double Y_ALIGMENT = 0.4;
-    private static String WINNER = "WINNER";
 
     private BingoBoard board = new BingoBoard();
+
     private static List<Combo> combos = new ArrayList<>();
-    static RandomNumber randomNumber = new RandomNumber();
+    private static RandomNumber randomNumber = new RandomNumber();
     static boolean playable = true;
+
     private Tile[][] checkBingo = new Tile[5][6];
 
     private Parent createContent() throws InterruptedException {
         Pane root = new Pane();
         root.setPrefSize(500, 700);
 
-        randomNumber.setValue("15");
         board.initBoard();
 
         //populate window with tiles
@@ -44,7 +39,7 @@ public class ClientBingo extends Application {
                 Tile tile = new Tile();
                 FreeTile freeTile = new FreeTile();
                 BingoTile bingoTile = new BingoTile();
-
+                randomNumber.setValue("50");
 
                 randomNumber.setTranslateY(NUMBER_Y * 100);
                 randomNumber.setTranslateX(NUMBER_X * 100);
@@ -63,6 +58,8 @@ public class ClientBingo extends Application {
                 checkBingo[i][j] = tile;
             }
         }
+
+        //if (!playable) randomNumber.setValue("WINNER");
 
         root.getChildren().addAll(randomNumber);
 
@@ -87,7 +84,7 @@ public class ClientBingo extends Application {
         for (Combo combo : combos) {
             if (combo.isBingo()) {
                 playable = false;
-                randomNumber.setValue(WINNER);
+                randomNumber.setValue("WINNER");
                 break;
             }
         }
@@ -99,13 +96,7 @@ public class ClientBingo extends Application {
         primaryStage.show();
     }
 
-    public static void main(String args[]) throws IOException {
-
+    public static void main(String args[]) {
         launch(args);
-
-//        Socket socket = new Socket("127.0.0.1", 9898);
-//        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-//        BufferedReader serverInput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-//        BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
     }
 }

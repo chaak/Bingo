@@ -1,7 +1,6 @@
 package com.web.client;
 
 import javafx.geometry.Pos;
-import javafx.scene.input.MouseButton;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -33,19 +32,18 @@ class Tile extends StackPane {
 
         setAlignment(Pos.CENTER);
 
-        if(BingoBoard.isClickAvaiable()) {
-            setOnMouseClicked(event -> {
-                if (!ClientBingo.playable) {
-                    return;
-                }
+        setOnMouseClicked(event -> {
+            if (!ClientBingo.playable){
+                return;
+            }
 
-                if (event.getButton() == MouseButton.PRIMARY) {
-                    setValue("B");
-                    border.setFill(Color.YELLOW);
-                    ClientBingo.checkState();
-                }
-            });
-        }
+
+
+
+            setValue("B");
+            border.setFill(Color.YELLOW);
+            ClientBingo.checkState();
+        });
         getChildren().addAll(border, value, number);
     }
 
@@ -56,7 +54,7 @@ class Tile extends StackPane {
     private void setValue(String newValue) {
         this.value.setText(newValue);
         this.value.setFill(Color.RED);
-        this.value.setFont(Font.font(0));
+        this.value.setFont(Font.font(45));
     }
 
 }
