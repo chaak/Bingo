@@ -33,7 +33,7 @@ class Tile extends StackPane {
 
         setAlignment(Pos.CENTER);
 
-        if(BingoBoard.isClickAvaiable()) {
+        if (BingoBoard.isClickAvaiable()) {
             setOnMouseClicked(event -> {
                 if (!ClientBingo.playable) {
                     return;
@@ -45,6 +45,7 @@ class Tile extends StackPane {
                     ClientBingo.checkState();
                 }
             });
+
         }
         getChildren().addAll(border, value, number);
     }

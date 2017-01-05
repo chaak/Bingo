@@ -6,14 +6,10 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+import java.util.Timer;
 
 /**
  * Created by JakubWitczak on 28.12.2016.
@@ -31,12 +27,14 @@ public class ClientBingo extends Application {
     static RandomNumber randomNumber = new RandomNumber();
     static boolean playable = true;
     private Tile[][] checkBingo = new Tile[5][6];
+    private static Timer timer = new Timer();
+
 
     private Parent createContent() throws InterruptedException {
         Pane root = new Pane();
         root.setPrefSize(500, 700);
 
-        randomNumber.setValue(String.valueOf(BingoBoard.randomNumber(1, 75)));
+        timer.schedule(new Time(), 0 , 6000);
         board.initBoard();
 
         //populate window with tiles
@@ -88,6 +86,7 @@ public class ClientBingo extends Application {
         for (Combo combo : combos) {
             if (combo.isBingo()) {
                 playable = false;
+                timer.cancel();
                 randomNumber.setValue(WINNER);
                 break;
             }
