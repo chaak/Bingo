@@ -13,6 +13,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by JakubWitczak on 28.12.2016.
@@ -35,7 +36,7 @@ public class ClientBingo extends Application {
         Pane root = new Pane();
         root.setPrefSize(500, 700);
 
-        randomNumber.setValue("15");
+        randomNumber.setValue(String.valueOf(BingoBoard.randomNumber(1, 75)));
         board.initBoard();
 
         //populate window with tiles
