@@ -1,7 +1,5 @@
 package com.web.client;
-
 import javafx.scene.text.Text;
-
 import java.util.Objects;
 import java.util.Random;
 
@@ -22,7 +20,7 @@ class BingoBoard {
                 board[1][2] = new Tile(i, j, String.valueOf(bingo.charAt(2)));
                 board[1][3] = new Tile(i, j, String.valueOf(bingo.charAt(3)));
                 board[1][4] = new Tile(i, j, String.valueOf(bingo.charAt(4)));
-                //generate rows
+
                 board[i][0] = new Tile(i, j, String.valueOf(randomNumber(1, 15)));
                 board[i][1] = new Tile(i, j, String.valueOf(randomNumber(16, 30)));
                 board[i][2] = new Tile(i, j, String.valueOf(randomNumber(31, 45)));

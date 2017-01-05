@@ -3,14 +3,14 @@ package com.web.client;
 /**
  * Created by JakubWitczak on 02.01.2017.
  */
-public class Combo {
+class Combo {
     private Tile[] tiles;
 
-    public Combo(Tile... tiles) {
+    Combo(Tile... tiles) {
         this.tiles = tiles;
     }
 
-    public boolean isBingo() {
+    boolean isBingo() {
         if(tiles[0].getValue().getText().isEmpty())
             return false;
 

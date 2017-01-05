@@ -7,7 +7,7 @@ import javafx.scene.shape.Rectangle;
 /**
  * Created by JakubWitczak on 31.12.2016.
  */
-public class BingoTile extends Tile {
+class BingoTile extends Tile {
     BingoTile(){
         Rectangle border = new Rectangle(100, 100);
         border.setFill(Color.ORANGE);
