@@ -17,7 +17,6 @@ class Tile extends StackPane {
     private int y;
 
     private Text value = new Text();
-    private RandomNumber number = new RandomNumber();
 
     Tile(int x, int y, String newValue) {
         this.x = x;
@@ -33,7 +32,7 @@ class Tile extends StackPane {
 
         setAlignment(Pos.CENTER);
 
-        if (BingoBoard.isClickAvaiable()) {
+        //if (BingoBoard.isClickAvaiable()) {
             setOnMouseClicked(event -> {
                 if (!ClientBingo.playable) {
                     return;
@@ -46,8 +45,8 @@ class Tile extends StackPane {
                 }
             });
 
-        }
-        getChildren().addAll(border, value, number);
+        //}
+        getChildren().addAll(border, value);
     }
 
     Text getValue() {
