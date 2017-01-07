@@ -12,7 +12,6 @@ class FreeTile extends Tile {
         Rectangle border = new Rectangle(100, 100);
         border.setFill(Color.ORANGE);
         border.setStroke(Color.BLACK);
-
         setAlignment(Pos.CENTER);
         getChildren().addAll(border);
     }

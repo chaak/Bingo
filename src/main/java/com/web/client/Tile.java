@@ -15,7 +15,6 @@ class Tile extends StackPane {
 
     private int x;
     private int y;
-
     private Text value = new Text();
 
     Tile(int x, int y, String newValue) {
@@ -29,23 +28,25 @@ class Tile extends StackPane {
         Rectangle border = new Rectangle(100, 100);
         border.setFill(null);
         border.setStroke(Color.BLACK);
-
         setAlignment(Pos.CENTER);
 
-        //if (BingoBoard.isClickAvaiable()) {
-            setOnMouseClicked(event -> {
-                if (!ClientBingo.playable) {
-                    return;
-                }
+        setOnMouseClicked(event -> {
+            if (!ClientBingo.playable) {
+                return;
+            }
 
-                if (event.getButton() == MouseButton.PRIMARY) {
+            if (event.getButton() == MouseButton.PRIMARY) {
+                if (BingoBoard.isClickAvaiable()) {
+                    if(ClientBingo.turn){
+                        return;
+                    }
                     setValue("B");
                     border.setFill(Color.YELLOW);
+                    ClientBingo.turn = true;
                     ClientBingo.checkState();
                 }
-            });
-
-        //}
+            }
+        });
         getChildren().addAll(border, value);
     }
 

@@ -9,5 +9,6 @@ class Time extends TimerTask{
     @Override
     public void run() {
         ClientBingo.randomNumber.setValue(String.valueOf(BingoBoard.randomNumber(1, 75)));
+        ClientBingo.turn = false;
     }
 }

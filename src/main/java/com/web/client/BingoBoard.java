@@ -31,7 +31,6 @@ class BingoBoard {
         }
     }
 
-
     Text getNumber(int x, int y) {
         return board[x][y].getValue();
     }

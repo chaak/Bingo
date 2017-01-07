@@ -5,7 +5,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,15 +25,14 @@ public class ClientBingo extends Application {
     private static List<Combo> combos = new ArrayList<>();
     static RandomNumber randomNumber = new RandomNumber();
     static boolean playable = true;
+    static boolean turn = false;
     private Tile[][] checkBingo = new Tile[5][6];
     private static Timer timer = new Timer();
-
 
     private Parent createContent() throws InterruptedException {
         Pane root = new Pane();
         root.setPrefSize(500, 700);
-
-        timer.schedule(new Time(), 0 , 6000);
+        timer.schedule(new Time(), 0 , 3000);
         board.initBoard();
 
         //populate window with tiles
@@ -43,7 +41,6 @@ public class ClientBingo extends Application {
                 Tile tile = new Tile();
                 FreeTile freeTile = new FreeTile();
                 BingoTile bingoTile = new BingoTile();
-
 
                 randomNumber.setTranslateY(NUMBER_Y * 100);
                 randomNumber.setTranslateX(NUMBER_X * 100);
@@ -58,18 +55,15 @@ public class ClientBingo extends Application {
                 tile.setTranslateY(j * 100);
 
                 root.getChildren().addAll(tile, freeTile, bingoTile);
-
                 checkBingo[i][j] = tile;
             }
         }
 
         root.getChildren().addAll(randomNumber);
-
         //populate horizontal lines
         for (int y = 1; y < 6; y++) {
             combos.add(new Combo(checkBingo[0][y], checkBingo[1][y], checkBingo[2][y], checkBingo[3][y], checkBingo[4][y]));
         }
-
         //populate tiles with numbers
         for (int x = 0; x < 7; x++) {
             for (int y = 0; y < 5; y++) {
