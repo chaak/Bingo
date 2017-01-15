@@ -44,7 +44,6 @@ public class Tile extends StackPane {
                     setValue("B");
                     border.setFill(Color.YELLOW);
                     ClientBingo.turn = true;
-                    ClientBingo.checkState();
                 }
             }
         });

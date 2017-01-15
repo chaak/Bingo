@@ -8,7 +8,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Objects;
 import java.util.Random;
-import java.util.TimerTask;
 
 /**
  * Created by JakubWitczak on 28.12.2016.
@@ -46,9 +45,13 @@ public class ServerBingo {
                 while ((input = in.readLine()) != null) {
                     if (Objects.equals(input, "GET.NUMBER")) {
                         System.out.println("Client" + connectionNumber);
-                        out.println(randomNumber(1, 75));
+                        out.println(randomNumber(1, 75)); //sends to all clients
                     }
-                    
+
+                    if(Objects.equals(input, "POST.WINNER")){
+                        out.println("Client" + connectionNumber + " " + "WINS!"); //sends to all clients and ends the game
+                    }
+
                 }
 
             } catch (IOException e) {

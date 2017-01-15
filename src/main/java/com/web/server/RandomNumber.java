@@ -11,7 +11,7 @@ import javafx.scene.text.Text;
  * Created by JakubWitczak on 30.12.2016.
  */
 public class RandomNumber extends StackPane{
-    private static int X_ALIGEMNET = -60;
+    private static int X_ALIGEMNET = -110;
     private Text number = new Text();
 
     public RandomNumber() {
@@ -28,8 +28,10 @@ public class RandomNumber extends StackPane{
         number.setFont(Font.font(50));
         number.setText(newValue);
 
-        if(newValue.equals("WINNER"))
+        if(newValue.contains("WINS")) {
             number.setTranslateX(X_ALIGEMNET);
+            number.setFill(Color.RED);
+        }
     }
 
     public Text getValue(){

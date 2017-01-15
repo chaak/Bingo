@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.TimerTask;
+import static com.web.client.ClientBingo.randomNumber;
 
 /**
  * Created by JakubWitczak on 05.01.2017.
@@ -23,8 +24,16 @@ class ServerConnection extends TimerTask {
         ) {
             while(true) {
                 out.println("GET.NUMBER");
-                ClientBingo.randomNumber.setValue(serverInput.readLine());//broadcasting!!
+                randomNumber.setValue(serverInput.readLine()); //od servera
                 ClientBingo.turn = false;
+
+                if(ClientBingo.checkState()){
+                    out.println("POST.WINNER");
+                    randomNumber.setValue(serverInput.readLine());
+                    socket.close();
+                    cancel();
+                }
+
                 try {
                     Thread.sleep(3000);
                 } catch (InterruptedException e) {

@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -74,19 +75,19 @@ public class ClientBingo extends Application {
                 root.getChildren().addAll(board.getNumber(x, y));
             }
         }
-        timer.schedule(new ServerConnection(), 0, 1000);
+        timer.schedule(new ServerConnection(), 0, 3000);
         return root;
     }
 
-    static void checkState() {
+    static boolean checkState() {
         for (Combo combo : combos) {
             if (combo.isBingo()) {
                 playable = false;
                 timer.cancel();
-                randomNumber.setValue(WINNER);
-                break;
+                return true;
             }
         }
+        return false;
     }
 
     @Override

@@ -1,9 +1,11 @@
 package com.web.client;
 
+import com.web.client.Tile;
+
 /**
  * Created by JakubWitczak on 02.01.2017.
  */
-class Combo {
+public class Combo {
     private Tile[] tiles;
 
     Combo(Tile... tiles) {
