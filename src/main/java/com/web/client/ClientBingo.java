@@ -1,5 +1,7 @@
 package com.web.client;
 
+import com.web.server.BingoBoard;
+import com.web.server.RandomNumber;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -23,16 +25,16 @@ public class ClientBingo extends Application {
 
     private BingoBoard board = new BingoBoard();
     private static List<Combo> combos = new ArrayList<>();
-    static RandomNumber randomNumber = new RandomNumber();
     static boolean playable = true;
     static boolean turn = false;
     private Tile[][] checkBingo = new Tile[5][6];
     private static Timer timer = new Timer();
+    public static RandomNumber randomNumber = new RandomNumber();
 
-    private Parent createContent() throws InterruptedException {
+    private Parent createContent() throws InterruptedException, IOException {
+
         Pane root = new Pane();
         root.setPrefSize(500, 700);
-        timer.schedule(new Time(), 0 , 3000);
         board.initBoard();
 
         //populate window with tiles
@@ -72,7 +74,7 @@ public class ClientBingo extends Application {
                 root.getChildren().addAll(board.getNumber(x, y));
             }
         }
-
+        timer.schedule(new ServerConnection(), 0, 1000);
         return root;
     }
 
@@ -94,12 +96,7 @@ public class ClientBingo extends Application {
     }
 
     public static void main(String args[]) throws IOException {
-
         launch(args);
-
-//        Socket socket = new Socket("127.0.0.1", 9898);
-//        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-//        BufferedReader serverInput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-//        BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
     }
 }
+

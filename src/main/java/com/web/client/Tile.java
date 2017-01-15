@@ -1,5 +1,6 @@
 package com.web.client;
 
+import com.web.server.BingoBoard;
 import javafx.geometry.Pos;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.StackPane;
@@ -11,13 +12,13 @@ import javafx.scene.text.Text;
 /**
  * Created by JakubWitczak on 28.12.2016.
  */
-class Tile extends StackPane {
+public class Tile extends StackPane {
 
     private int x;
     private int y;
     private Text value = new Text();
 
-    Tile(int x, int y, String newValue) {
+    public Tile(int x, int y, String newValue) {
         this.x = x;
         this.y = y;
         value.setText(newValue);
@@ -50,7 +51,7 @@ class Tile extends StackPane {
         getChildren().addAll(border, value);
     }
 
-    Text getValue() {
+    public Text getValue() {
         return this.value;
     }
 

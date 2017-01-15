@@ -1,4 +1,4 @@
-package com.web.client;
+package com.web.server;
 
 import javafx.geometry.Pos;
 import javafx.scene.layout.StackPane;
@@ -10,11 +10,11 @@ import javafx.scene.text.Text;
 /**
  * Created by JakubWitczak on 30.12.2016.
  */
-class RandomNumber extends StackPane{
+public class RandomNumber extends StackPane{
     private static int X_ALIGEMNET = -60;
     private Text number = new Text();
 
-    RandomNumber() {
+    public RandomNumber() {
         Rectangle border = new Rectangle(100, 100);
         border.setFill(null);
         border.setStroke(null);
@@ -24,7 +24,7 @@ class RandomNumber extends StackPane{
         getChildren().addAll(border, number);
     }
 
-    void setValue(String newValue){
+    public void setValue(String newValue){
         number.setFont(Font.font(50));
         number.setText(newValue);
 
@@ -32,7 +32,7 @@ class RandomNumber extends StackPane{
             number.setTranslateX(X_ALIGEMNET);
     }
 
-    Text getValue(){
+    public Text getValue(){
         return number;
     }
 
