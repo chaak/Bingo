@@ -1,6 +1,7 @@
 //package com.web.server;
 
 import com.web.server.Connection;
+import com.web.server.WinnerListener;
 
 import java.io.IOException;
 
@@ -10,18 +11,8 @@ import java.io.IOException;
 public class ServerBingo {
 
     public static void main(String args[]) throws InterruptedException, IOException {
-
-        int connectionNumber = 1;
-        int counter = 0;
-
-        while (true) {
-            System.out.print(counter++ + " ");
-            Thread.sleep(1000);
-            //dodawanie clientow
-            if (counter == 10) break;
-        }
-
-        new Connection(connectionNumber++).start();
+        new Connection().start();
+        new WinnerListener().start();
     }
 
 }

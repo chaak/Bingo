@@ -17,6 +17,7 @@ public class Tile extends StackPane {
     private int x;
     private int y;
     private Text value = new Text();
+    final static String EMPTY = "B";
 
     public Tile(int x, int y, String newValue) {
         this.x = x;
@@ -38,10 +39,10 @@ public class Tile extends StackPane {
 
             if (event.getButton() == MouseButton.PRIMARY) {
                 if (BingoBoard.isClickAvaiable()) {
-                    if(ClientBingo.turn){
+                    if (ClientBingo.turn) {
                         return;
                     }
-                    setValue("B");
+                    setValue(EMPTY);
                     border.setFill(Color.YELLOW);
                     ClientBingo.turn = true;
                 }
