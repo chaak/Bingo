@@ -10,8 +10,12 @@ import static com.web.client.ClientBingo.randomNumber;
  * Created by JakubWitczak on 05.01.2017.
  */
 class ServerConnection extends TimerTask {
-    final InetAddress group = InetAddress.getByName("237.0.0.1");
-    final int port = 9000;
+
+    private final String IP = "237.0.0.1";
+    private final int clientPort = 9000;
+    private final int serverPort = 8000;
+    private final int winnerListenerPort = 8500;
+    private final InetAddress group = InetAddress.getByName(IP);
 
     ServerConnection() throws UnknownHostException {
     }
@@ -20,7 +24,7 @@ class ServerConnection extends TimerTask {
     public void run() {
 
         try {
-            MulticastSocket socket = new MulticastSocket(port);
+            MulticastSocket socket = new MulticastSocket(clientPort);
             socket.setInterface(InetAddress.getLocalHost());
             socket.joinGroup(group);
 
@@ -34,7 +38,7 @@ class ServerConnection extends TimerTask {
                 sendData = new byte[1024];
                 String getNumber = "GET.NUMBER";
                 sendData = getNumber.getBytes();
-                sendPacket = new DatagramPacket(sendData, sendData.length, group, 8000);
+                sendPacket = new DatagramPacket(sendData, sendData.length, group, serverPort);
                 socket.send(sendPacket);
 
                 System.out.println("Waiting for a reply..");
@@ -50,7 +54,7 @@ class ServerConnection extends TimerTask {
                 if (ClientBingo.checkState()) {
                     randomNumber.setValue("WINNER");
                     sendData = "WINNER".getBytes();
-                    sendPacket = new DatagramPacket(sendData, sendData.length, group, 8500);
+                    sendPacket = new DatagramPacket(sendData, sendData.length, group, winnerListenerPort);
                     System.out.println(new String(sendPacket.getData()).trim());
                     socket.send(sendPacket);
 

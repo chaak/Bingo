@@ -1,5 +1,8 @@
 package com.web.server;
 
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.net.*;
 import java.util.Random;
@@ -9,18 +12,22 @@ import java.util.Random;
  */
 public class Connection extends Thread {
 
-    final InetAddress group = InetAddress.getByName("237.0.0.1");
-    final int port = 9000;
+    ParserXML parser = new ParserXML();
+    private final String IP = parser.getIp();
+    private final int clientPort = parser.getClientPort();
+    private final int serverPort = parser.getServerPort();
+    private final int delay = 3000;
     static MulticastSocket serverSocket;
+    private final InetAddress group = InetAddress.getByName(IP);
 
-    public Connection() throws IOException {
+    public Connection() throws IOException, ParserConfigurationException, SAXException {
         System.out.println("Server is launched.");
     }
 
     public void run() {
 
         try {
-            serverSocket = new MulticastSocket(8000);
+            serverSocket = new MulticastSocket(serverPort);
             serverSocket.setInterface(InetAddress.getLocalHost());
             serverSocket.joinGroup(group);
 
@@ -42,12 +49,12 @@ public class Connection extends Thread {
                     int response = randomNumber(1, 75);
                     sendData = String.valueOf(response).getBytes();
                     System.out.println("To client: " + response);
-                    sendPacket = new DatagramPacket(sendData, sendData.length, group, port);
+                    sendPacket = new DatagramPacket(sendData, sendData.length, group, clientPort);
                     serverSocket.send(sendPacket);
                 }
 
                 try {
-                    Thread.sleep(3000);
+                    Thread.sleep(delay);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

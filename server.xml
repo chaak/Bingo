@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<server>
+	<clientPort>9000</clientPort>
+	<ip>237.0.0.1</ip>
+	<winnerListener>
+		<listenerPort>8500</listenerPort>
+	</winnerListener>
+	<randomNumberListener>
+		<serverPort>8000</serverPort>
+	</randomNumberListener>
+</server>
